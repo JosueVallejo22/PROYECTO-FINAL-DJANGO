@@ -1,0 +1,53 @@
+{% extends "inicio.html" %}
+{% block titulo %}
+   Cargos
+{% endblock %}
+{% load static %}
+{% block css %}
+   <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %} 
+
+{% block contenido %}
+    <section>
+    <div class= "consulta none table-responsive" id="consulta-est">
+      <h2>✅Listado de Cargos</h2>
+      <table class="consulta-est" id="consulta-est" border="">  
+        <thead>
+          <th>#</th>
+          <th>Descripcion</th>
+          <th>Estado</th>
+          <th>Acciones</th>
+        </thead>
+        <tbody class="detalle-est" id="detalle-est">
+          {% for cargo in cargos %}
+            <tr>
+              <td>{{cargo.id}}</td>
+                <td>{{cargo.descripcion}}</td>
+                <td>{{cargo.estado}}</td>
+                <td class="acciones">
+                  <a href= {% url 'editar_cargo' cargo.id %}>📝</a>
+                  <a href= {% url 'eliminar_cargo' cargo.id %}>✖</a>
+                </td>
+              </tr>
+          {%endfor%}
+          <!-- <tr>
+            <td>2</td>
+            <td>Ingeniero Sistema</td>
+            <td>Inactivo</td>
+            <td>
+              <button>📝</button>
+              <button>✖</button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+      <form id="form-cargo" class="form">
+        <button
+          id= "enviar"
+          type= "submit"
+          name= "enviar"><a href="{% url 'NuevoCargo' %}">Crear Cargo</a>
+        </button>
+       </form>
+    </div> 
+    </section>
+ {% endblock%} 

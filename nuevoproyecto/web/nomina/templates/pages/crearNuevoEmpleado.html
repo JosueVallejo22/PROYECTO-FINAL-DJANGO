@@ -1,0 +1,27 @@
+{% extends "inicio.html" %}
+{%block titulo %}
+   Empleados
+{% endblock %}
+{% load static %}
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %} 
+
+{% block contenido %}  
+<section class="form-container">
+  <div class="form-header" >        
+    <h1>🌊Formulario de Empleado🌊</h1>       
+      </div>
+        <form method="POST" id="form-cargo" class="form">
+        {% csrf_token %}
+        {{empleadoForm.as_p}}
+          <button
+            id="enviar"
+            type="submit"
+            name="enviar">
+            {{accion}}
+          </button>
+        </form>
+</section> 
+{% endblock%}
+

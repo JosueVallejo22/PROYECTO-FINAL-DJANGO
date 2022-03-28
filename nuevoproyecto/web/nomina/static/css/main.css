@@ -1,0 +1,60 @@
+/* selector(h1,p,div, etc) {
+    propiedad1(color,width,margin,etc): valor1(red,50px,5px);
+    propiedad2: valor2;
+
+} */
+
+
+:root {
+    --primary-color:#A9DFBF  ;
+    --secundary-color:#000000;
+    --boton-success:#fdcf89;
+    --boton-secundary:#eff1ca ;
+    --boton-warning:#60f3db;
+    --boton-cancelar:#f07b4c;
+    --font-size:18px;
+    --font-color:#1F618D;
+    --font-color-reverse:rgb(207, 202, 202);
+}
+html{
+    box-sizing: border-box;
+    font-size: var(--font-size);
+    scroll-behavior: smooth;
+    color: var(--font-color);
+    
+}
+*,*::before,*::after {
+    box-sizing: inherit;
+}
+body{
+    margin:0px ;
+    overflow-x: hidden;
+    box-sizing: inherit;
+}
+main{
+    margin: 0 10px;
+    margin-top: 30px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+a{
+    text-decoration: none;
+    color:var(--font-color)
+}
+li{
+    list-style:none;
+}
+.principal {
+    border-radius: 1%;
+    position: relative;
+    top:-25px;
+    text-align: center;
+    background-color: var(--boton-success);
+    height:110vh;
+}
+.principal h1 {
+      padding: 20px;
+      color:blue;  
+}

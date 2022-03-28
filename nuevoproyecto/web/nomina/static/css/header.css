@@ -1,0 +1,39 @@
+.header{
+    background-color: var(--primary-color);
+    border-radius: 90px;
+}
+.navegacion{
+    display: flex;
+    flex-direction:row;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu a {
+    font-weight: bold;
+    color:rgb(31, 97, 141);
+    
+}
+.logo{
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--font-color);
+    margin-left: 6px;
+    margin-bottom: 7px; 
+}
+.logo img{
+    border-radius: 70%;
+
+}
+.menu{
+    display:flex;
+}
+.menu li{
+    padding: 0px 30px;
+}
+@media (max-width: 6000px){
+    body{
+        background-color: #e4fdff ;
+    }
+}
+

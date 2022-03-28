@@ -1,0 +1,53 @@
+{% extends "inicio.html" %}
+{%block titulo %}
+   Empleados
+{% endblock %}
+{% load static %}
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %} 
+
+{% block contenido %}  
+        <div class= "consulta none table-responsive" id="consulta-est">
+          <h2>🌞Listado de Empleados</h2>
+          <table class="consulta-est" id="consulta-est" border="1">  
+            <thead>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Cedulas</th>
+              <th>Cargo</th>
+              <th>Departamento</th>
+              <th>Sueldo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody class="detalle-est" id="detalle-est">
+            {% for empleado in empleados %}
+             <tr>
+                <td>{{empleado.id}}</td>
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.cedula}}</td>
+                <td>{{empleado.cargo}}</td>
+                <td>{{empleado.departamento}}</td>
+                <td>{{empleado.sueldo}}</td>
+                <td>{{empleado.estado}}</td>
+                <td class="acciones">
+                  <a href= {% url 'editar_empleado' empleado.id %}>📋</a>
+                  <a href={% url 'eliminar_empleado' empleado.id %}>❎</a>
+                  
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+          <form id="form-cargo" class="form">
+            <button
+              id= "enviar"
+              type= "submit"
+              name= "enviar"><a href="{% url 'NuevoEmpleado' %}">Crear Empleado</a>
+            </button>
+           </form>
+        </div> 
+      </section> 
+{% endblock%}
+

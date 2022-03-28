@@ -1,0 +1,53 @@
+{% extends "inicio.html" %}
+{%block titulo %}
+   Departamentos
+{% endblock %}
+{% load static %}
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %} 
+{% block contenido %}
+        <div class= "consulta none table-responsive" id="consulta-est">
+          <h2>✅Listado de Departamentos</h2>
+          <table class="consulta-est" id="consulta-est" border="">  
+            <thead>
+              <th>#</th>
+              <th>Descripcion</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody class="detalle-est" id="detalle-est">
+             
+            {% for departamento in departamentos %}
+              <tr>
+                  <td>{{departamento.id}}</td>
+                  <td>{{departamento.descripcion}}</td>
+                  <td>{{departamento.estado}}</td>
+                  <td class="acciones">
+                    <a href= {% url 'editar_departamento' departamento.id %}>✍</a>
+                    <a href= {% url 'eliminar_departamento' departamento.id %}>❌</a>
+                  </td>
+                </tr>
+            {%endfor%}
+              
+              <!-- <tr>
+                <td>2</td>
+                <td>Auditorio</td>
+                <td>Inactivo</td>
+                <td>
+                  <button>✍</button>
+                  <button>❌</button>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+          <form id="form-cargo" class="form">
+            <button
+              id= "enviar"
+              type= "submit"
+              name= "enviar"><a href="{% url 'NuevoDepartamento' %}">Crear Departamento</a>
+            </button>
+           </form>
+        </div> 
+      </section> 
+{% endblock%}

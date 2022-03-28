@@ -1,0 +1,124 @@
+{% extends "inicio.html" %}
+{%block titulo %}
+   Empleados
+{% endblock %}
+{% load static %}
+{% block css %}
+ <link rel="stylesheet" href="{% static 'css/form.css' %}"/>
+{% endblock %} 
+
+{% block contenido %}  
+        <section class="form-container">
+          <div class="form-header" >
+          
+          <h1>🌊Formulario de Empleado🌊</h1>
+           
+          </div>
+          <form id="form-cargo" class="form">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                name="nombre"  
+                id="nombre"
+                placeholder="Ingrese su nombre"
+                value=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cedula">Cedula</label>
+              <input
+                type="text"
+                name="cedula"  
+                id="cedula"
+                placeholder="Ingrese cedula"
+                value=""
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="cargo">Cargo</label>
+              <select name="cargo" id="cargo">
+                <option value="value1" >Cargo1</option>
+                <option value="value2" >Cargo2</option>
+                <option value="value2" selected>Cargo3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="departamento">Departamento</label>
+              <select name="departamento" id="departamento">
+                <option value="value1" selected>departamento1</option>
+                <option value="value2" >departamento2</option>
+                <option value="value2" >departamento3</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sueldo">Sueldo</label>
+              <input
+                type="text"
+                name="sueldo"  
+                id="sueldo"
+                placeholder="Ingrese sueldo"
+                value=""
+                required
+              />
+            </div>
+            <div class=""form-check>
+              <label> Activo
+                <input type="checkbox" id="activo" checked />
+              </label>
+            </div>
+            <button
+            id="enviar"
+            type="submit"
+            name="enviar">
+            Enviar
+          </button>
+        </form>
+        <div class= "consulta none table-responsive" id="consulta-est">
+          <h2>🌞Listado de Empleados</h2>
+          <table class="consulta-est" id="consulta-est" border="1">  
+            <thead>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Cedulas</th>
+              <th>Cargo</th>
+              <th>Departamento</th>
+              <th>Sueldo</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </thead>
+            <tbody class="detalle-est" id="detalle-est">
+  
+            <tr>
+                <td>1</td>
+                <td>Edinson Collahuazo</td>
+                <td>0987563214</td>
+                <td>Diseñadores de videojuegos</td>
+                <td>Sistemas</td>
+                <td>1000</td>
+                <td>Activo</td>
+                <td class="acciones">
+                  <button>📋</button>
+                  <button>❎</button> 
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>David Romero</td>
+                <td>0956324786</td>
+                <td>Programador</td>
+                <td>Sistemas</td>
+                <td>1500</td>
+                <td>Activo</td>
+                <td class="acciones">
+                  <button>📋</button>
+                  <button>❎</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+      </section> 
+{% endblock%}
